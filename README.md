@@ -1,6 +1,6 @@
 # CI Workflow
 
-A React + Vite application wired up with a complete Continuous Integration (CI) pipeline using GitHub Actions. Every push and pull request is automatically installed, built, linted, format-checked, tested, and security-scanned.
+A sample React + Vite application wired up with a complete Continuous Integration (CI) pipeline using GitHub Actions. Every push and pull request is automatically installed, built, linted, format-checked, tested, and security-scanned.
 
 The application itself is intentionally minimal — it exists to give the CI pipeline something real to install, build, lint, and test.
 
