@@ -1,17 +1,14 @@
 # CI Workflow
 
-A sample React + Vite application wired up with a complete **Continuous Integration (CI)** pipeline using **GitHub Actions**. Every push and pull request is automatically installed, built, linted, formatted-checked, tested, and security-scanned.
+A sample React + Vite application wired up with a complete Continuous Integration (CI) pipeline using GitHub Actions. Every push and pull request is automatically installed, built, linted, format-checked, tested, and security-scanned.
 
 The application itself is intentionally minimal — it exists to give the CI pipeline something real to install, build, lint, and test.
 
-
----
-
 ## What the pipeline does
 
-There are two workflows in [`.github/workflows/`](.github/workflows/):
+There are two workflows in `.github/workflows/`:
 
-### 1. `CI` — [ci.yml](.github/workflows/ci.yml)
+### 1. CI — `ci.yml`
 
 Runs the core quality gate on every push and pull request:
 
@@ -24,9 +21,9 @@ Runs the core quality gate on every push and pull request:
 | Build                | `npm run build`        | Produces a production build with Vite                |
 | Upload artifact      | —                      | Saves the `dist/` build output for 5 days            |
 
-### 2. `Security Scan` — [security.yml](.github/workflows/security.yml)
+### 2. Security Scan — `security.yml`
 
-Runs on every push, every pull request, **and** on a weekly schedule (Mondays 06:00 UTC):
+Runs on every push, every pull request, and on a weekly schedule (Mondays 06:00 UTC):
 
 | Job                           | Tool                           | Purpose                                    |
 | ----------------------------- | ------------------------------ | ------------------------------------------ |
@@ -34,22 +31,18 @@ Runs on every push, every pull request, **and** on a weekly schedule (Mondays 06
 | CodeQL Analysis               | GitHub CodeQL                  | Static application security testing (SAST) |
 | Secret Leak Scan              | Gitleaks                       | Detects committed secrets/credentials      |
 
-### Dependency analysis — [dependabot.yml](.github/dependabot.yml)
+### Dependency analysis — `dependabot.yml`
 
-Dependabot opens weekly pull requests to keep both **npm packages** and **GitHub Actions** up to date.
-
----
+Dependabot opens weekly pull requests to keep both npm packages and GitHub Actions up to date.
 
 ## Triggers
 
 Both workflows trigger on:
 
-- **`push`** to `main`, `master`, or `develop`
-- **`pull_request`** targeting `main`, `master`, or `develop`
+- `push` to `main`, `master`, or `develop`
+- `pull_request` targeting `main`, `master`, or `develop`
 
-The security workflow additionally runs on a **weekly cron schedule** so vulnerabilities are caught even when no code changes.
-
----
+The security workflow additionally runs on a weekly cron schedule so vulnerabilities are caught even when no code changes.
 
 ## Project structure
 
@@ -71,13 +64,11 @@ The security workflow additionally runs on a **weekly cron schedule** so vulnera
 └── package.json
 ```
 
----
-
 ## Setup instructions
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) 20.x or later
+- Node.js 20.x or later
 - npm (bundled with Node.js)
 
 ### Run locally
@@ -99,10 +90,9 @@ npm run build         # Production build
 ### Enable CI on your own repository
 
 1. Push this repository to GitHub.
-2. Open the **Actions** tab — the `CI` and `Security Scan` workflows run automatically on the next push or pull request.
-3. No secrets or extra configuration are required. `GITHUB_TOKEN` used by Gitleaks and CodeQL is provided automatically by GitHub Actions.
+2. Open the **Actions** tab — the CI and Security Scan workflows run automatically on the next push or pull request.
 
----
+No secrets or extra configuration are required. `GITHUB_TOKEN` used by Gitleaks and CodeQL is provided automatically by GitHub Actions.
 
 ## Available npm scripts
 
@@ -116,12 +106,10 @@ npm run build         # Production build
 | `npm run format:check` | Check formatting without writing changes                  |
 | `npm test`             | Run Vitest (watch mode; add `-- --run` for a single pass) |
 
----
-
 ## Tech stack
 
-- **React 18** + **Vite 6** — application and build tooling
-- **Vitest** + **Testing Library** — unit testing
-- **ESLint 9** (flat config) — linting
+- **React 18 + Vite 6** — application and build tooling
+- **Vitest + Testing Library** — unit testing
+- **ESLint 9 (flat config)** — linting
 - **Prettier 3** — formatting
 - **GitHub Actions** — CI/CD, CodeQL, Gitleaks, Dependabot
