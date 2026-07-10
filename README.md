@@ -4,6 +4,8 @@ A sample React + Vite application wired up with a complete Continuous Integratio
 
 The application itself is intentionally minimal — it exists to give the CI pipeline something real to install, build, lint, and test.
 
+# two types of workflows
+
 There are two workflows in `.github/workflows/`:
 
 ### 1. CI — `ci.yml`
