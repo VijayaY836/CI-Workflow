@@ -4,7 +4,7 @@ A sample React + Vite application wired up with a complete **Continuous Integrat
 
 The application itself is intentionally minimal — it exists to give the CI pipeline something real to install, build, lint, and test.
 
-## Demo Video : 
+
 ---
 
 ## What the pipeline does
